@@ -1,0 +1,3 @@
+displayName = Eternity
+author = Melisek, Fottotex
+version = 0.1
