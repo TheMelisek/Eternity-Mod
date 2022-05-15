@@ -1,37 +1,37 @@
+using EternityMod.Content.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EternityMod.Items
+namespace EternityMod.Content.Items.Weapons
 {
 	public class EternitySword : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("EternitySword"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-			Tooltip.SetDefault("This is a basic modded sword.");
+			DisplayName.SetDefault("Eternity Sword");
+			Tooltip.SetDefault("It holds mysterious dark powers inside...");
 		}
 
 		public override void SetDefaults()
 		{
 			Item.damage = 50;
 			Item.DamageType = DamageClass.Melee;
-			Item.width = 40;
-			Item.height = 40;
-			Item.useTime = 20;
-			Item.useAnimation = 20;
-			Item.useStyle = 1;
+			Item.useTime = 15;
+			Item.useAnimation = 15;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Expert;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
+			Item.shoot = ModContent.ProjectileType<Projectiles.EternitySwordProjectile>();
 		}
 
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.DirtBlock, 10);
+			recipe.AddIngredient<EternityScale>(25);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}
